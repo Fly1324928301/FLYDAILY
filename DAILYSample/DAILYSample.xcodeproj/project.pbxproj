@@ -93,6 +93,8 @@
 		C282AE981981252300E72EFF /* FLYAdaptPicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C282AE971981252300E72EFF /* FLYAdaptPicTableViewCell.m */; };
 		C282AE9C1981293900E72EFF /* FLYNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C282AE9B1981293900E72EFF /* FLYNewsTableViewCell.m */; };
 		C2EC108E19879B5A0082E935 /* FLYING2X.png in Resources */ = {isa = PBXBuildFile; fileRef = C2EC108D19879B5A0082E935 /* FLYING2X.png */; };
+		C2EC10911987B8390082E935 /* FLYStory2ListPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EC10901987B8390082E935 /* FLYStory2ListPicViewController.m */; };
+		C2EC10941987B9E40082E935 /* FLYStory2ListPicViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EC10931987B9E40082E935 /* FLYStory2ListPicViewCell.m */; };
 		C2F75F50197F667E009C767C /* photoDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F75F4F197F667E009C767C /* photoDefault.png */; };
 		C2F75F52197F66A1009C767C /* picListThumbsDefautl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F75F51197F66A1009C767C /* picListThumbsDefautl@2x.png */; };
 		C2F75F54197F6822009C767C /* about_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F75F53197F6822009C767C /* about_bg@2x.png */; };
@@ -269,6 +271,10 @@
 		C282AE9A1981293900E72EFF /* FLYNewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLYNewsTableViewCell.h; sourceTree = "<group>"; };
 		C282AE9B1981293900E72EFF /* FLYNewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYNewsTableViewCell.m; sourceTree = "<group>"; };
 		C2EC108D19879B5A0082E935 /* FLYING2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FLYING2X.png; sourceTree = "<group>"; };
+		C2EC108F1987B8390082E935 /* FLYStory2ListPicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLYStory2ListPicViewController.h; sourceTree = "<group>"; };
+		C2EC10901987B8390082E935 /* FLYStory2ListPicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYStory2ListPicViewController.m; sourceTree = "<group>"; };
+		C2EC10921987B9E40082E935 /* FLYStory2ListPicViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLYStory2ListPicViewCell.h; sourceTree = "<group>"; };
+		C2EC10931987B9E40082E935 /* FLYStory2ListPicViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYStory2ListPicViewCell.m; sourceTree = "<group>"; };
 		C2F75F4F197F667E009C767C /* photoDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoDefault.png; sourceTree = "<group>"; };
 		C2F75F51197F66A1009C767C /* picListThumbsDefautl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picListThumbsDefautl@2x.png"; sourceTree = "<group>"; };
 		C2F75F53197F6822009C767C /* about_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about_bg@2x.png"; sourceTree = "<group>"; };
@@ -474,6 +480,8 @@
 				C280651F19863D8B00842216 /* FLYInfoView.m */,
 				C280652119864A7400842216 /* FLYLargePicView.h */,
 				C280652219864A7400842216 /* FLYLargePicView.m */,
+				C2EC10921987B9E40082E935 /* FLYStory2ListPicViewCell.h */,
+				C2EC10931987B9E40082E935 /* FLYStory2ListPicViewCell.m */,
 			);
 			path = LIstOicCollectionCell;
 			sourceTree = "<group>";
@@ -485,6 +493,8 @@
 				C28065181986296B00842216 /* FLYPicStory2ViewController.m */,
 				C28065681986869200842216 /* FLYPicStoryReadInWebViewVC.h */,
 				C28065691986869200842216 /* FLYPicStoryReadInWebViewVC.m */,
+				C2EC108F1987B8390082E935 /* FLYStory2ListPicViewController.h */,
+				C2EC10901987B8390082E935 /* FLYStory2ListPicViewController.m */,
 			);
 			path = picStoryInfoVC2;
 			sourceTree = "<group>";
@@ -904,6 +914,7 @@
 				C20F48DF197EAA5100C03AE9 /* AFHTTPSessionManager.m in Sources */,
 				C28065191986296B00842216 /* FLYPicStory2ViewController.m in Sources */,
 				C232270B197F530E008B956E /* NSData+ImageContentType.m in Sources */,
+				C2EC10941987B9E40082E935 /* FLYStory2ListPicViewCell.m in Sources */,
 				C22FFB4319839928004A4744 /* FLYListPicLunboViewController.m in Sources */,
 				C20F48E0197EAA5100C03AE9 /* AFNetworkReachabilityManager.m in Sources */,
 				C23226E9197F4DC4008B956E /* FLYlunBoTableViewCell.m in Sources */,
@@ -961,6 +972,7 @@
 				C20F48E4197EAA5100C03AE9 /* AFURLResponseSerialization.m in Sources */,
 				C2824685197CE52C00C64B9A /* MMNavigationController.m in Sources */,
 				C282AE8E1980ECCE00E72EFF /* FLYStoryViewController.m in Sources */,
+				C2EC10911987B8390082E935 /* FLYStory2ListPicViewController.m in Sources */,
 				C232270C197F530E008B956E /* SDImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

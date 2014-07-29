@@ -10,7 +10,7 @@
 
 static const int kLeftSpace = 24;
 static const int kFramHeigth = 40;
-static const int kTopSpace = 2;
+static const int kTopSpace = 0;
 static const int kFramWidth = 50;
 //static const int kVerticalSpace = 24;
 @implementation FLYWebBarView

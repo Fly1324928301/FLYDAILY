@@ -11,11 +11,11 @@
 #import "FLYAnasilyWebViewDate.h"
 #import "UIImageView+WebCache.h"
 #import "FLYStoryViewInfoCell.h"
-#import "FLYPicStoryPicModel.h"
 #import "FLYInfoView.h"
 #import "FLYcollectionView.h"
 #import "FLYLargePicView.h"
 #import "FLYPicStoryReadInWebViewVC.h"
+#import "FLYStory2ListPicViewController.h"
 @interface FLYPicStory2ViewController ()
 
 {
@@ -26,6 +26,8 @@
     FLYInfoView *_infoView;
     FLYLargePicView *_largeView;
     UIView *_coverView;
+    // barView
+    FLYcollectionView *_barView;
 }
 
 @end
@@ -74,8 +76,8 @@
     
     
     // barView
-    FLYcollectionView *barView = [[FLYcollectionView alloc] initWithFrame:Rect(0, self.view.frame.size.height - 44, 320, 44)];
-    [self.view addSubview:barView];
+    _barView = [[FLYcollectionView alloc] initWithFrame:Rect(0, self.view.frame.size.height - 44, 320, 44)];
+    [self.view addSubview:_barView];
     
     [self.view addSubview:_coverView];
     [self.view addSubview:_juhua];
@@ -85,10 +87,13 @@
     
     // barViewtap
     UITapGestureRecognizer *webTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backClick)];
-    [barView.backView addGestureRecognizer:webTap];
+    [_barView.backView addGestureRecognizer:webTap];
     UITapGestureRecognizer *newsTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(readNews)];
-    [barView.toWebView addGestureRecognizer:newsTap];
-    
+    [_barView.toWebView addGestureRecognizer:newsTap];
+    UITapGestureRecognizer *listPicTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(listPicClick)];
+    [_barView.shareView addGestureRecognizer:listPicTap];
+    // 关listPic交互
+    _barView.shareView.userInteractionEnabled = NO;
     
 }
 
@@ -115,6 +120,18 @@
     
 }
 
+// 展示图片
+- (void)listPicClick
+{
+    
+    FLYStory2ListPicViewController *storyListVC = [[FLYStory2ListPicViewController alloc] init];
+    storyListVC.picArry = _listArry;
+    storyListVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:storyListVC animated:YES completion:nil];
+    
+}
+
+
 
 
 // 加载data
@@ -128,7 +145,7 @@
         [_juhua stopAnimating];
         [_collectionView reloadData];
         [_coverView removeFromSuperview];
-        
+        _barView.shareView.userInteractionEnabled = YES;
         
     } failed:^(NSError *error) {
         
