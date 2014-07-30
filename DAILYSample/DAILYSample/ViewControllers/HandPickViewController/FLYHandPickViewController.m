@@ -14,6 +14,7 @@
 #import "MMDrawerBarButtonItem.h"
 
 #import "FLYReadingInWebViewController.h"
+#import "MJRefresh.h"
 @interface FLYHandPickViewController ()
 
 {
@@ -57,27 +58,46 @@
     _hptableView.dataSource = self;
     [self.view addSubview:_hptableView];
     
-    // 加载数据
-    [self loadHandPickWithNetWorking];
     
     // 覆盖图
     _coverView = [[UIView alloc] initWithFrame:self.view.bounds];
     _coverView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_coverView];
-    
-    
     _juhua = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     _juhua.center = self.view.center;
     [self.view addSubview:_juhua];
     [_juhua startAnimating];
     
+    
+    // 加载数据
+    [self loadHandPickWithNetWorking];
+    
+
 
     
     // 添加navButton
     [self setupLeftMenuButton];
     
     
+    [_hptableView addHeaderWithTarget:self action:@selector(hpUpUI)];
+    [_hptableView addFooterWithTarget:self action:@selector(loadMoreHPList)];
+    
+    
 }
+
+
+#pragma mark -- 上下加载
+- (void)hpUpUI
+{
+    [self refreshHandPickWithNetWorking];
+}
+
+-(void)loadMoreHPList
+{
+    [self loadMoreHandPickWithNetWorking];
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -115,6 +135,46 @@
     }];
     
 }
+
+
+// 刷新
+- (void)refreshHandPickWithNetWorking
+{
+    
+    [[FLYNetWorkingManage currentNetWorkManager] refreshHandPickPageListWithCompletion:^(NSArray *array) {
+        
+        _handPickArry = array;
+        [_hptableView reloadData];
+        [_hptableView headerEndRefreshing];
+        
+    } error:^(NSError *error) {
+        
+        [_hptableView headerEndRefreshing];
+        
+    }];
+    
+}
+
+
+// 加载更多
+- (void)loadMoreHandPickWithNetWorking
+{
+    
+    [[FLYNetWorkingManage currentNetWorkManager] loadMoreHandPickPageListWithCompletion:^(NSArray *array) {
+        
+        _handPickArry = array;
+        [_hptableView reloadData];
+        [_hptableView footerEndRefreshing];
+        
+    } error:^(NSError *error) {
+        
+        
+        [_hptableView footerEndRefreshing];
+        
+    }];
+    
+}
+
 
 
 #pragma mark -- tableViewDelegate

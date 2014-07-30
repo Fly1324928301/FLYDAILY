@@ -13,6 +13,7 @@
 #import "FLYHomePageTableViewCell.h"
 #import "FLYNews.h"
 #import "FLYReadingInWebViewController.h"
+#import "MJRefresh.h"
 @interface FLYHotViewController ()
 
 {
@@ -20,6 +21,7 @@
     UITableView *_hotTableView;
     UIActivityIndicatorView *_juhua;
     UIView *_coverView;
+   
 }
 
 @end
@@ -70,10 +72,28 @@
     
     // navButton
     [self setupLeftMenuButton];
+    [_juhua startAnimating];
     // 加载数据
     [self loadHotListWithNetWorking];
     
-    [_juhua startAnimating];
+    
+    [_hotTableView addHeaderWithTarget:self action:@selector(upHotUI)];
+    [_hotTableView addFooterWithTarget:self action:@selector(loadMoreHot)];
+}
+
+#pragma mark -- 上下加载
+- (void)upHotUI
+{
+    
+    [self refreshHotListWithNetWorking];
+    
+}
+
+- (void)loadMoreHot
+{
+    
+    [self loadMoreHotListWithNetWorking];
+    
 }
 
 
@@ -117,6 +137,46 @@
         [_juhua stopAnimating];
         [_coverView removeFromSuperview];
         
+    }];
+    
+}
+
+
+// 刷新网络数据
+- (void)refreshHotListWithNetWorking
+{
+    
+    [[FLYNetWorkingManage currentNetWorkManager] refreshHotPageListWithCompletion:^(NSArray *array) {
+        
+        _hotListArry = array;
+        [_hotTableView reloadData];
+        
+        [_hotTableView headerEndRefreshing];
+        
+    }error:^(NSError *error) {
+        
+        
+        [_hotTableView headerEndRefreshing];
+        
+    }];
+   
+}
+
+
+
+// 加载更多
+- (void)loadMoreHotListWithNetWorking
+{
+    
+    
+    [[FLYNetWorkingManage currentNetWorkManager] loadMoreHotPageListWithCompletion:^(NSArray *array) {
+        
+        _hotListArry = array;
+        [_hotTableView reloadData];
+        [_hotTableView footerEndRefreshing];
+        
+    } error:^(NSError *error) {
+        [_hotTableView footerEndRefreshing];
     }];
     
 }

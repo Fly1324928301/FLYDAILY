@@ -12,6 +12,7 @@
 #import "FLYNetWorkingManage.h"
 #import "FLYHomePageTableViewCell.h"
 #import "FLYNews.h"
+#import "MJRefresh.h"
 #import "FLYReadingInWebViewController.h"
 @interface FLYRecommendationOfWeekViewController ()
 
@@ -77,9 +78,23 @@
     
     
     
-    
+    [_weekTableView addHeaderWithTarget:self action:@selector(upWeekUI)];
+    [_weekTableView addFooterWithTarget:self action:@selector(loadMoreWeekList)];
     
 }
+
+#pragma mark -- 上下加载
+- (void)upWeekUI
+{
+    [self refreshWeekListWithNetWorking];
+}
+
+-(void)loadMoreWeekList
+{
+    [self loadMoreWeekListWithNetWorking];
+}
+
+
 
 // leftButtonItem
 -(void)setupLeftMenuButton{
@@ -118,7 +133,43 @@
     
 }
 
+// 刷新
+- (void)refreshWeekListWithNetWorking
+{
+    
+    [[FLYNetWorkingManage currentNetWorkManager] refreshWeekPageListWithCompletion:^(NSArray *array) {
+        
+        _weekArry = array;
+        [_weekTableView reloadData];
+        [_weekTableView headerEndRefreshing];
+        
+    }error:^(NSError *error) {
+        
+        [_weekTableView headerEndRefreshing];
+        
+    }];
+    
+}
 
+
+// 加载更多
+
+- (void)loadMoreWeekListWithNetWorking
+{
+    
+    [[FLYNetWorkingManage currentNetWorkManager] loadMoreWeekPageListWithCompletion:^(NSArray *array) {
+        
+        _weekArry = array;
+        [_weekTableView reloadData];
+        [_weekTableView footerEndRefreshing];
+        
+    }error:^(NSError *error) {
+        
+        [_weekTableView footerEndRefreshing];
+        
+    }];
+    
+}
 
 
 #pragma mark --TableViewDelegate

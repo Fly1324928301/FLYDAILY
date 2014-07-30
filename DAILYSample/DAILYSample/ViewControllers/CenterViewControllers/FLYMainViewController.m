@@ -15,6 +15,7 @@
 #import "FLYNews.h"
 #import "FLYHomePageTableViewCell.h"
 #import "FLYReadingInWebViewController.h"
+#import "MJRefresh.h"
 @interface FLYMainViewController ()
 
 {
@@ -88,7 +89,23 @@
     
    // 注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getIndex:) name:@"getindex" object:nil];
+    
+    
+    // 下拉刷新
+    [_tableVW addHeaderWithTarget:self action:@selector(upui)];
 }
+
+
+// 下啦刷新
+- (void)upui
+{
+    [_juhua startAnimating];
+    // 加载网络数据
+    [self refreshHomeListWithNetWorking];
+    
+}
+
+
 
 // 通知
 - (void)getIndex:(NSNotification *)notification
@@ -138,9 +155,11 @@
     [[FLYNetWorkingManage currentNetWorkManager] requestHomePageListWithCompletion:^(NSDictionary *dictionary) {
         _homePageDic = dictionary;
         _headlineArry = _homePageDic[@"headline"];
+        
         [_tableVW reloadData];
         [_juhua stopAnimating];
         [_coverView removeFromSuperview];
+        
 
     }
      error:^(NSError *error) {
@@ -152,6 +171,29 @@
     
     
 }
+
+
+
+- (void)refreshHomeListWithNetWorking
+{
+    
+    [[FLYNetWorkingManage currentNetWorkManager] refreshHomePageListWithCompletion:^(NSDictionary *dictionary) {
+       
+        _homePageDic = dictionary;
+        _headlineArry = _homePageDic[@"headline"];
+        [_tableVW headerEndRefreshing];
+        [_tableVW reloadData];
+        
+        
+    } error:^(NSError *error) {
+        
+        [_tableVW headerEndRefreshing];
+        
+    }];
+    
+    
+}
+
 
 
 

@@ -14,7 +14,7 @@
 #import "FLYNewsTableViewCell.h"
 #import "FLYAdaptPicTableViewCell.h"
 #import "FLYNews.h"
-
+#import "MJRefresh.h"
 #import "FLYReadingInWebViewController.h"
 @interface FLYLifeViewController ()
 
@@ -82,10 +82,29 @@
     [self loadLifeListWithNetWorking];
     
     
+    [_lifeTableView addFooterWithTarget:self action:@selector(loadMoreLifeList)];
+    [_lifeTableView addHeaderWithTarget:self action:@selector(uplifeUI)];
+    
     
     
     
 }
+
+
+#pragma mark -- 上下加载
+- (void)uplifeUI
+{
+    [self refreshLifeListWithNetWorking];
+    
+}
+
+
+- (void)loadMoreLifeList
+{
+    [self loadMoreLifeListWithNetWorking];
+    
+}
+
 
 // leftButtonItem
 -(void)setupLeftMenuButton{
@@ -122,6 +141,44 @@
     }];
     
 }
+
+
+- (void)refreshLifeListWithNetWorking
+{
+    
+    [[FLYNetWorkingManage currentNetWorkManager] requestLifePageListWithType:self.type Completion:^(NSArray *array) {
+        
+        _lifeArry = array;
+        [_lifeTableView reloadData];
+        [_lifeTableView headerEndRefreshing];
+        
+    } error:^(NSError *error) {
+        
+        [_lifeTableView headerEndRefreshing];
+        
+    }];
+    
+}
+
+
+
+- (void)loadMoreLifeListWithNetWorking
+{
+    
+    [[FLYNetWorkingManage currentNetWorkManager] lodeMoreLifePageListWithType:self.type Completion:^(NSArray *array) {
+        
+        _lifeArry = array;
+        [_lifeTableView reloadData];
+        [_lifeTableView footerEndRefreshing];
+        
+    } error:^(NSError *error) {
+        
+        [_lifeTableView footerEndRefreshing];
+        
+    }];
+    
+}
+
 
 
 
