@@ -40,11 +40,12 @@
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setMinimumLineSpacing:0];
     flowLayout.minimumInteritemSpacing = 0;
+    flowLayout.itemSize = CGSizeMake(320, self.view.frame.size.height - 64);
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     flowLayout.headerReferenceSize = CGSizeMake(0, 0);
     flowLayout.footerReferenceSize = CGSizeMake(0, 0);
     self.view.backgroundColor = [UIColor whiteColor];
-    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 20, 320, self.view.frame.size.height - 20 ) collectionViewLayout:flowLayout];
+    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 20, 320, self.view.frame.size.height - 64 ) collectionViewLayout:flowLayout];
     _collectionView.backgroundColor = [UIColor whiteColor];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
@@ -86,6 +87,15 @@
 }
 
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+    [super viewWillAppear:YES];
+    
+    
+}
+
 - (void) backClick
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -112,7 +122,7 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     
-    return 100000;
+    return self.imgArry.count;
     
 }
 

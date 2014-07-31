@@ -168,9 +168,9 @@
     
     FLYimage_textModel *picmodel = _storyArry[indexPath.row];
     FLYPicStory2ViewController *nextPicStoryVC = [[FLYPicStory2ViewController alloc] init];
-    nextPicStoryVC.picurlStr = picmodel.url;
-    nextPicStoryVC.newsUrlStr = picmodel.news.url;
-    NSLog(@"....%@",picmodel.news.url);
+    
+    nextPicStoryVC.img_txtModel = picmodel;
+//    NSLog(@"....%@",picmodel.news.url);
     [self presentViewController:nextPicStoryVC animated:YES completion:nil];
     
 }

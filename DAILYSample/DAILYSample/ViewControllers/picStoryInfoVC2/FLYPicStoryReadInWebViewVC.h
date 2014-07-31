@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FLYNews.h"
 @interface FLYPicStoryReadInWebViewVC : UIViewController <UIWebViewDelegate,UIScrollViewDelegate>
-@property (nonatomic, strong)NSString *newsUrlStr;
+
+@property (nonatomic, strong)FLYNews *storyNews;
 
 @end

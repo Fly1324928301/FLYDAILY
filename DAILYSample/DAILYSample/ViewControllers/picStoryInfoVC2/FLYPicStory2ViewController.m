@@ -94,6 +94,22 @@
     [_barView.shareView addGestureRecognizer:listPicTap];
     // 关listPic交互
     _barView.shareView.userInteractionEnabled = NO;
+    _barView.downloadView.userInteractionEnabled = NO;
+    UITapGestureRecognizer *downTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(downClick)];
+    [_barView.downloadView addGestureRecognizer:downTap];
+    
+    
+    // 通知  设置偏移量
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(picIndex:) name:@"getimgindex" object:nil];
+    
+}
+
+// 通知  设置偏移量
+- (void)picIndex:(NSNotification *)notification
+{
+    
+    int k = [notification.object intValue];
+    _collectionView.contentOffset = CGPointMake(k*320, 0);
     
 }
 
@@ -112,10 +128,10 @@
 // 阅读新闻
 - (void)readNews
 {
-    
+    FLYNews *news = self.img_txtModel.news;
     FLYPicStoryReadInWebViewVC *storyVC = [[FLYPicStoryReadInWebViewVC alloc] init];
-    storyVC.newsUrlStr = self.newsUrlStr;
-    storyVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    storyVC.storyNews = news;
+    storyVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:storyVC animated:YES completion:nil];
     
 }
@@ -131,6 +147,64 @@
     
 }
 
+// 保存
+- (void)downClick
+{
+    
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"保存图片" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    
+    [sheet showInView:self.view];
+    
+}
+
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    if (buttonIndex == 0) {
+        NSInteger k = _collectionView.contentOffset.x/320;
+        UIImage *image = _listArry[k];
+        UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    }
+    
+}
+
+- (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
+{
+    
+    NSString *msg = nil;
+    
+    if(error != nil)
+        
+    {
+        
+        msg = @"保存图片失败";
+        
+    }
+    
+    else
+        
+    {
+        
+        msg = @"保存图片成功";
+        
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"保存图片结果提示"
+                          
+                                                    message:msg
+                          
+                                                   delegate:self
+                          
+                                          cancelButtonTitle:@"确定"
+                          
+                                          otherButtonTitles:nil];
+    
+    [alert show];
+    
+}
+
 
 
 
@@ -138,17 +212,17 @@
 - (void)loadPic
 {
     
-    
-    [[FLYAnasilyWebViewDate shareAnasilyWebViewData] loadPicStoryTHArryWithUrlStr:self.picurlStr sucess:^(NSDictionary *picdataDic) {
+    NSString *urlStr = self.img_txtModel.url;
+    [[FLYAnasilyWebViewDate shareAnasilyWebViewData] loadPicStoryTHArryWithUrlStr:urlStr sucess:^(NSDictionary *picdataDic) {
         _listArry = picdataDic[@"imageArry"];
         _picModelArry = picdataDic[@"modelArry"];
         [_juhua stopAnimating];
         [_collectionView reloadData];
         [_coverView removeFromSuperview];
-        _barView.shareView.userInteractionEnabled = YES;
+        [_barView.shareView setUserInteractionEnabled: YES];
+        [_barView.downloadView setUserInteractionEnabled:YES];
         
     } failed:^(NSError *error) {
-        
         [_juhua stopAnimating];
         [_coverView removeFromSuperview];
     }];

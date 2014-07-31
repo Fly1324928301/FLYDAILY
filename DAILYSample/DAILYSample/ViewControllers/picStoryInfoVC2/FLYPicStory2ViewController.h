@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FLYimage-textModel.h"
+@interface FLYPicStory2ViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate,UIActionSheetDelegate>
 
-@interface FLYPicStory2ViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate>
 
-@property (nonatomic, copy) NSString *picurlStr;
-@property (nonatomic, copy) NSString *newsUrlStr;
+@property (nonatomic, strong) FLYimage_textModel *img_txtModel;
 
 @end

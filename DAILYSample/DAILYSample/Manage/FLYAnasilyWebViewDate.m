@@ -41,21 +41,30 @@ static FLYAnasilyWebViewDate *anasilyWebViewData = nil;
 {
     
     RequestWebViewBlocks requestWebViewBlock = [sucess copy];
-//    FailedWebViewBlocks failedWebViewBlock = [failed copy];
+    FailedWebViewBlocks failedWebViewBlock = [failed copy];
     
     __weak id selfTemp = self;
     
-    
-//    NSLog(@"%@,,,,,",urlStr);
-    
-    
+ 
     
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            if (connectionError != nil) {
+                failedWebViewBlock(connectionError);
+                return ;
+            }
+            
         NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSString *htmlWeb = [selfTemp p_anasilyHtmlWithResponseObjcet:str];
+            dispatch_async(dispatch_get_main_queue(), ^{
         requestWebViewBlock(htmlWeb);
+            });
+        });
+        
+        
     }];
 
     
@@ -108,18 +117,17 @@ static FLYAnasilyWebViewDate *anasilyWebViewData = nil;
     [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
        
         if (requestPicStoryTHBlock) {
-            dispatch_queue_t queue = dispatch_queue_create("picStoryQueue", NULL);
-            dispatch_async(queue, ^{
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+               
                 NSArray *arryTemp = [selfTemp p_anasilyArryOfResponseObjcet:responseObject];
                 NSArray *picArry = [selfTemp p_downloadIMGArryWithpicModelArry:arryTemp];
                 NSDictionary *picStoryTHDic = @{@"imageArry": picArry,@"modelArry":arryTemp};
-                dispatch_sync(dispatch_get_main_queue(), ^{
+                dispatch_async(dispatch_get_main_queue(), ^{
                     requestPicStoryTHBlock(picStoryTHDic);
-                    
                 });
                 
             });
-            
             
         }
         
@@ -143,11 +151,11 @@ static FLYAnasilyWebViewDate *anasilyWebViewData = nil;
 {
     NSString *htmlTemp = responseStr;
     NSString *regex = @">(<img src=\"[a-zA-z]+://[^\\s]*\" alt=\"\" /></p></div>)[\\s]+<div id=\"end\"";
-    NSArray *fullIMGArry = [responseStr componentsMatchedByRegex:regex capture:1];
-    if (fullIMGArry) {
-        for (NSString *obj in fullIMGArry) {
-            htmlTemp = [htmlTemp stringByReplacingOccurrencesOfString:obj withString:@""];
-        }
+    NSString *fullIMG = [responseStr stringByMatching:regex capture:1];
+    if (fullIMG) {
+        
+            htmlTemp = [htmlTemp stringByReplacingOccurrencesOfString:fullIMG withString:@""];
+        
         
     }
     
@@ -169,7 +177,10 @@ static FLYAnasilyWebViewDate *anasilyWebViewData = nil;
         NSURL *url = [NSURL URLWithString:objUrl];
         NSData *data = [NSData dataWithContentsOfURL:url];
         UIImage *image = [[UIImage alloc] initWithData:data];
+        if(image != nil){
         [imageArry addObject:image];
+            
+        }
     }
     
     return imageArry;
@@ -214,7 +225,10 @@ static FLYAnasilyWebViewDate *anasilyWebViewData = nil;
         NSURL *url = [NSURL URLWithString:objUrl];
         NSData *data = [NSData dataWithContentsOfURL:url];
         UIImage *image = [[UIImage alloc] initWithData:data];
+        if (image != nil) {
         [imageArry addObject:image];
+        }
+        
     }
     
     return imageArry;

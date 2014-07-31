@@ -20,7 +20,7 @@
 #define Rect(X, Y, W, H) (CGRectMake((X), (Y), (W), (H)))
 #define Size(W, H) (CGSizeMake((W), (H)))
 #define Point(X, Y) (CGPointMake((X), (Y)))
-
+#define UmengAppkey @"53da1372fd98c5c0c2001f55"
 #define RandomNumber(A, B) (arc4random() % ((B) - (A) + 1) + (A))
 
 #define Font(N, S) ([UIFont fontWithName:(N) size:(S)])

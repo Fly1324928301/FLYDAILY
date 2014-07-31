@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FLYExhibitPicViewController : UIViewController <UICollectionViewDelegate,UICollectionViewDataSource>
+@interface FLYExhibitPicViewController : UIViewController <UICollectionViewDelegate,UICollectionViewDataSource,UIActionSheetDelegate>
 
 @property (nonatomic, copy) NSString *htmlStr;
 

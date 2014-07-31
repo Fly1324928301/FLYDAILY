@@ -11,6 +11,8 @@
 #import "FLYAnasilyWebViewDate.h"
 #import "FLYWebBarView.h"
 #import "FLYExhibitPicViewController.h"
+#import "UMSocialDataService.h"
+#import "UMSocial.h"
 @interface FLYReadingInWebViewController ()
 
 {
@@ -80,6 +82,8 @@
     [_webBarView.reloadView addGestureRecognizer:reloadTap];
     NSLog(@"...%@",self.news.url);
     
+    UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shreClick)];
+    [_webBarView.shareView addGestureRecognizer:shareTap];
 }
 
 
@@ -102,6 +106,22 @@
     
 }
 
+
+// 分享
+- (void)shreClick
+{
+    
+    NSString *shareUrl = self.news.share_url;
+    NSString *shareText = self.news.share_text;
+    shareText = [shareText stringByAppendingString:shareUrl];
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:UmengAppkey
+                                      shareText:shareText
+                                     shareImage:nil
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToRenren, UMShareToDouban, UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,nil]
+                                       delegate:nil];
+    
+}
 
 
 

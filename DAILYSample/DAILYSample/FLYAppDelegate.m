@@ -13,8 +13,10 @@
 #import "FLYLeftViewController.h"
 #import "MMExampleDrawerVisualStateManager.h"
 #import "MMNavigationController.h"
-
-
+#import "UMSocial.h"
+#import "UMSocialWechatHandler.h"
+#import "UMSocialQQHandler.h"
+#import "MobClick.h"
 
 @interface FLYAppDelegate ()
 @property (nonatomic,strong) MMDrawerController * drawerController;
@@ -61,7 +63,7 @@
 //    [self.window setTintColor:tintColor];
     
     [self.window setRootViewController:self.drawerController];
-    
+
     return YES;
 }
 
@@ -72,10 +74,19 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    [UMSocialData setAppKey:UmengAppkey];
+    //设置微信AppId，url地址传nil，将默认使用友盟的网址
+    [UMSocialWechatHandler setWXAppId:@"wxd9a39c7122aa6516" url:nil];
+    [MobClick startWithAppkey:UmengAppkey];
+    //设置手机QQ的AppId，指定你的分享url，若传nil，将使用友盟的网址
+    [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:@"http://www.umeng.com/social"];
     
-
+    //如果你要支持不同的屏幕方向，需要这样设置，否则在iPhone只支持一个竖屏方向
+    [UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskAll];
     
-    
+    [UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage; //设置QQ分享纯图片，默认分享图文消息
+    [UMSocialData defaultData].extConfig.wechatSessionData.wxMessageType = UMSocialWXMessageTypeImage;  //设置微信好友分享纯图片
+    [UMSocialData defaultData].extConfig.wechatTimelineData.wxMessageType = UMSocialWXMessageTypeImage;  //设置微信朋友圈分享纯图片
     return YES;
 }
 
@@ -96,6 +107,13 @@
         return ((MMDrawerController *)self.window.rootViewController).leftDrawerViewController;
     }
     return nil;
+}
+
+
+// 禁止横屏的方法 （写在APP.M里，所有界面不能横屏）
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 

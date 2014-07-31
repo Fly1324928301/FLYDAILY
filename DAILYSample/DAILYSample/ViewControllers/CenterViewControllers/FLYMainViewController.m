@@ -40,7 +40,7 @@
 
 - (void)dealloc
 {
-    NSLog(@".........");
+//    NSLog(@".........");
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

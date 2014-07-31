@@ -10,7 +10,8 @@
 #import "FLYAnasilyWebViewDate.h"
 #import "FLYWebBarView.h"
 
-
+#import "UMSocialDataService.h"
+#import "UMSocial.h"
 @interface FLYPicStoryReadInWebViewVC ()
 {
     
@@ -75,6 +76,9 @@
     [_webBarView.reloadView addGestureRecognizer:reloadTap];
     
     
+    UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareClick)];
+    [_webBarView.shareView addGestureRecognizer:shareTap];
+    
 }
 
 
@@ -96,6 +100,21 @@
 }
 
 
+// 分享
+- (void)shareClick
+{
+    
+    NSString *shareUrl = self.storyNews.share_url;
+    NSString *shareText = self.storyNews.share_text;
+    shareText = [shareText stringByAppendingString:shareUrl];
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:UmengAppkey
+                                      shareText:shareText
+                                     shareImage:nil
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToRenren, UMShareToDouban, UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,nil]
+                                       delegate:nil];
+    
+}
 
 
 - (void)reloadClick
@@ -109,8 +128,8 @@
 // 加载Web
 - (void)loadWebView
 {
-    
-    [[FLYAnasilyWebViewDate shareAnasilyWebViewData] loadWebViewWithUrlStr:self.newsUrlStr sucess:^(NSString *htmlStr) {
+    NSString *newsUrl = self.storyNews.url;
+    [[FLYAnasilyWebViewDate shareAnasilyWebViewData] loadWebViewWithUrlStr:newsUrl sucess:^(NSString *htmlStr) {
         
         [_webView loadHTMLString:htmlStr baseURL:nil];
         _htmlTemp = htmlStr;

@@ -116,6 +116,20 @@
     return size;
 }
 
+
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"getimgindex" object:[NSNumber numberWithInteger:indexPath.row]];
+    }];
+    
+}
+
+
+
 /*
 #pragma mark - Navigation
 
