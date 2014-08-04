@@ -16,6 +16,7 @@
 #import "FLYStoryViewController.h"
 #import "FLYRecommendationOfWeekViewController.h"
 #import "FLYLifeViewController.h"
+#import "FLYSettingViewController.h"
 @interface FLYLeftViewController ()
 
 @property (nonatomic, strong) UITableView *tbView;
@@ -40,7 +41,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.array = @[@"首页",@"热门",@"每日精选",@"图片故事",@"本周推荐",@[@"新闻",@"文艺",@"时尚",@"生活"]];
+    self.array = @[@"首页",@"热门",@"每日精选",@"图片故事",@"本周推荐",@[@"新闻",@"文艺",@"时尚",@"生活"],@"设置"];
     self.tbView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 175, self.view.frame.size.height - 64) style:UITableViewStylePlain];
     self.tbView.delegate = self;
     self.tbView.dataSource = self;
@@ -171,7 +172,14 @@
         UINavigationController *nav = [[MMNavigationController alloc] initWithRootViewController:lifeVC];
         [self.mm_drawerController setCenterViewController:nav withFullCloseAnimation:YES completion:nil];
     }
-    
+    if (indexPath.section == 6) {
+        
+        FLYSettingViewController *setVC = [[FLYSettingViewController alloc] init];
+        UINavigationController *nav = [[MMNavigationController alloc] initWithRootViewController:setVC];
+        [self.mm_drawerController setCenterViewController:nav withFullCloseAnimation:YES completion:nil];
+        
+        
+    }
     
     
 }

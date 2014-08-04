@@ -39,13 +39,14 @@
 - (void)setAdaptcellInputViewDataAndFramWithNews:(FLYNews *)news
 {
     
+    
     float heigth = [news.image_real_height floatValue];
     float width = [news.image_real_width floatValue];
     heigth = heigth * 320 / width;
     
     _imageView.frame = Rect(0, 0, 320, heigth);
     
-    [_imageView setImageWithURL:[NSURL URLWithString:news.image] placeholderImage:[UIImage imageNamed:@"FLYING2X.PNG"]];
+    [_imageView setImageWithURL:[NSURL URLWithString:news.first_image] placeholderImage:[UIImage imageNamed:@"FLYING2X.PNG"]];
     _label.frame = Rect(0, heigth - 20, 320, 20);
     _label.backgroundColor = RGBA(255, 255, 255, 0.5);
     _label.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:14];

@@ -84,7 +84,7 @@ static const int kVerticalSpace = 5;
     float imgWidth = [news.image_real_width floatValue];
     imgHeigth = 300.0 / imgWidth * imgHeigth;
     _imageVw.frame = Rect(kLeftSpace, kTopSpace + kVerticalSpace + titleHeigth + authorHeigth, 300, imgHeigth);
-    [_imageVw setImageWithURL:[NSURL URLWithString:news.image] placeholderImage:[UIImage imageNamed:@"FLYING2X.png"]];
+    [_imageVw setImageWithURL:[NSURL URLWithString:news.first_image] placeholderImage:[UIImage imageNamed:@"FLYING2X.png"]];
     
     // 内容
     float infoHeigth = [self p_getLabelHeigthWithLbText:news.info fontSize:14];

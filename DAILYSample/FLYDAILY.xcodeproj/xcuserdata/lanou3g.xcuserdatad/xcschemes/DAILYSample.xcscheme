@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C282462D197CB88700C64B9A"
-               BuildableName = "DAILYSample.app"
-               BlueprintName = "DAILYSample"
-               ReferencedContainer = "container:DAILYSample.xcodeproj">
+               BuildableName = "FLYDAILY.app"
+               BlueprintName = "FLYDAILY"
+               ReferencedContainer = "container:FLYDAILY.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C2824648197CB88700C64B9A"
-               BuildableName = "DAILYSampleTests.xctest"
-               BlueprintName = "DAILYSampleTests"
-               ReferencedContainer = "container:DAILYSample.xcodeproj">
+               BuildableName = "FLYDAILYTests.xctest"
+               BlueprintName = "FLYDAILYTests"
+               ReferencedContainer = "container:FLYDAILY.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C282462D197CB88700C64B9A"
-            BuildableName = "DAILYSample.app"
-            BlueprintName = "DAILYSample"
-            ReferencedContainer = "container:DAILYSample.xcodeproj">
+            BuildableName = "FLYDAILY.app"
+            BlueprintName = "FLYDAILY"
+            ReferencedContainer = "container:FLYDAILY.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C282462D197CB88700C64B9A"
-            BuildableName = "DAILYSample.app"
-            BlueprintName = "DAILYSample"
-            ReferencedContainer = "container:DAILYSample.xcodeproj">
+            BuildableName = "FLYDAILY.app"
+            BlueprintName = "FLYDAILY"
+            ReferencedContainer = "container:FLYDAILY.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C282462D197CB88700C64B9A"
-            BuildableName = "DAILYSample.app"
-            BlueprintName = "DAILYSample"
-            ReferencedContainer = "container:DAILYSample.xcodeproj">
+            BuildableName = "FLYDAILY.app"
+            BlueprintName = "FLYDAILY"
+            ReferencedContainer = "container:FLYDAILY.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

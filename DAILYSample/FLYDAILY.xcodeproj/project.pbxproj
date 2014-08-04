@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C204C0FC198CCF5D00F68BB0 /* FLYMyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C204C0FB198CCF5D00F68BB0 /* FLYMyView.m */; };
+		C204C0FE198CD1CD00F68BB0 /* DazFlake.png in Resources */ = {isa = PBXBuildFile; fileRef = C204C0FD198CD1CD00F68BB0 /* DazFlake.png */; };
 		C20A288C1982274400669318 /* FLYReadingInWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20A288B1982274400669318 /* FLYReadingInWebViewController.m */; };
 		C20A288F19822CBC00669318 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = C20A288E19822CBC00669318 /* UIWebView+AFNetworking.m */; };
 		C20A289219823FD500669318 /* FLYAnasilyWebViewDate.m in Sources */ = {isa = PBXBuildFile; fileRef = C20A289119823FD500669318 /* FLYAnasilyWebViewDate.m */; };
@@ -117,6 +119,7 @@
 		C282AE9419810C2500E72EFF /* FLYRecommendationOfWeekViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C282AE9319810C2500E72EFF /* FLYRecommendationOfWeekViewController.m */; };
 		C282AE981981252300E72EFF /* FLYAdaptPicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C282AE971981252300E72EFF /* FLYAdaptPicTableViewCell.m */; };
 		C282AE9C1981293900E72EFF /* FLYNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C282AE9B1981293900E72EFF /* FLYNewsTableViewCell.m */; };
+		C2BBE21C198BBDDD007A4BC1 /* FLYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BBE21B198BBDDD007A4BC1 /* FLYSettingViewController.m */; };
 		C2DCD3DA1988D09400B3E3EB /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C2DCD3CA1988D09400B3E3EB /* MJRefresh.bundle */; };
 		C2DCD3DB1988D09400B3E3EB /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DCD3CD1988D09400B3E3EB /* MJRefreshBaseView.m */; };
 		C2DCD3DC1988D09400B3E3EB /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DCD3CF1988D09400B3E3EB /* MJRefreshConst.m */; };
@@ -148,6 +151,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C204C0FA198CCF5D00F68BB0 /* FLYMyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLYMyView.h; sourceTree = "<group>"; };
+		C204C0FB198CCF5D00F68BB0 /* FLYMyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYMyView.m; sourceTree = "<group>"; };
+		C204C0FD198CD1CD00F68BB0 /* DazFlake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DazFlake.png; sourceTree = "<group>"; };
 		C20A288A1982274400669318 /* FLYReadingInWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLYReadingInWebViewController.h; sourceTree = "<group>"; };
 		C20A288B1982274400669318 /* FLYReadingInWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYReadingInWebViewController.m; sourceTree = "<group>"; };
 		C20A288D19822CBC00669318 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
@@ -293,20 +299,20 @@
 		C280656619867C5D00842216 /* FLYStoryViewInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYStoryViewInfoCell.m; sourceTree = "<group>"; };
 		C28065681986869200842216 /* FLYPicStoryReadInWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLYPicStoryReadInWebViewVC.h; sourceTree = "<group>"; };
 		C28065691986869200842216 /* FLYPicStoryReadInWebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYPicStoryReadInWebViewVC.m; sourceTree = "<group>"; };
-		C282462E197CB88700C64B9A /* DAILYSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DAILYSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C282462E197CB88700C64B9A /* FLYDAILY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLYDAILY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2824631197CB88700C64B9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C2824633197CB88700C64B9A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C2824635197CB88700C64B9A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		C2824639197CB88700C64B9A /* DAILYSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DAILYSample-Info.plist"; sourceTree = "<group>"; };
+		C2824639197CB88700C64B9A /* FLYDAILY-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FLYDAILY-Info.plist"; sourceTree = "<group>"; };
 		C282463B197CB88700C64B9A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C282463D197CB88700C64B9A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C282463F197CB88700C64B9A /* DAILYSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DAILYSample-Prefix.pch"; sourceTree = "<group>"; };
+		C282463F197CB88700C64B9A /* FLYDAILY-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FLYDAILY-Prefix.pch"; sourceTree = "<group>"; };
 		C2824640197CB88700C64B9A /* FLYAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLYAppDelegate.h; sourceTree = "<group>"; };
 		C2824641197CB88700C64B9A /* FLYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLYAppDelegate.m; sourceTree = "<group>"; };
 		C2824643197CB88700C64B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C2824649197CB88700C64B9A /* DAILYSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DAILYSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2824649197CB88700C64B9A /* FLYDAILYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FLYDAILYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C282464A197CB88700C64B9A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		C2824652197CB88700C64B9A /* DAILYSampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DAILYSampleTests-Info.plist"; sourceTree = "<group>"; };
+		C2824652197CB88700C64B9A /* FLYDAILYTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FLYDAILYTests-Info.plist"; sourceTree = "<group>"; };
 		C2824654197CB88700C64B9A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C2824656197CB88700C64B9A /* DAILYSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DAILYSampleTests.m; sourceTree = "<group>"; };
 		C2824666197CB96300C64B9A /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
@@ -346,6 +352,8 @@
 		C282AE971981252300E72EFF /* FLYAdaptPicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYAdaptPicTableViewCell.m; sourceTree = "<group>"; };
 		C282AE9A1981293900E72EFF /* FLYNewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLYNewsTableViewCell.h; sourceTree = "<group>"; };
 		C282AE9B1981293900E72EFF /* FLYNewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYNewsTableViewCell.m; sourceTree = "<group>"; };
+		C2BBE21A198BBDDD007A4BC1 /* FLYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLYSettingViewController.h; sourceTree = "<group>"; };
+		C2BBE21B198BBDDD007A4BC1 /* FLYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYSettingViewController.m; sourceTree = "<group>"; };
 		C2DCD3CA1988D09400B3E3EB /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		C2DCD3CB1988D09400B3E3EB /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
 		C2DCD3CC1988D09400B3E3EB /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
@@ -726,8 +734,8 @@
 		C282462F197CB88700C64B9A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C282462E197CB88700C64B9A /* DAILYSample.app */,
-				C2824649197CB88700C64B9A /* DAILYSampleTests.xctest */,
+				C282462E197CB88700C64B9A /* FLYDAILY.app */,
+				C2824649197CB88700C64B9A /* FLYDAILYTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -767,10 +775,10 @@
 		C2824638197CB88700C64B9A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C2824639197CB88700C64B9A /* DAILYSample-Info.plist */,
+				C2824639197CB88700C64B9A /* FLYDAILY-Info.plist */,
 				C282463A197CB88700C64B9A /* InfoPlist.strings */,
 				C282463D197CB88700C64B9A /* main.m */,
-				C282463F197CB88700C64B9A /* DAILYSample-Prefix.pch */,
+				C282463F197CB88700C64B9A /* FLYDAILY-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -787,7 +795,7 @@
 		C2824651197CB88700C64B9A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C2824652197CB88700C64B9A /* DAILYSampleTests-Info.plist */,
+				C2824652197CB88700C64B9A /* FLYDAILYTests-Info.plist */,
 				C2824653197CB88700C64B9A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -822,6 +830,7 @@
 		C2824662197CB95B00C64B9A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				C204C0FD198CD1CD00F68BB0 /* DazFlake.png */,
 				C2EC108D19879B5A0082E935 /* FLYING2X.png */,
 				C22FFB441983AB55004A4744 /* tool_footersep.png */,
 				C22FFB3E19839670004A4744 /* toolbar_ article_btn@2x.png */,
@@ -875,6 +884,7 @@
 				C22FFB2E19834104004A4744 /* exhibitionPic */,
 				C22FFB40198398FC004A4744 /* ListPicVC */,
 				C28065161986292F00842216 /* picStoryInfoVC2 */,
+				C2BBE219198BBDB3007A4BC1 /* Setting */,
 			);
 			name = ViewControllers;
 			path = DAILYSample/ViewControllers;
@@ -999,6 +1009,17 @@
 			path = "新闻文艺...cell";
 			sourceTree = "<group>";
 		};
+		C2BBE219198BBDB3007A4BC1 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				C2BBE21A198BBDDD007A4BC1 /* FLYSettingViewController.h */,
+				C2BBE21B198BBDDD007A4BC1 /* FLYSettingViewController.m */,
+				C204C0FA198CCF5D00F68BB0 /* FLYMyView.h */,
+				C204C0FB198CCF5D00F68BB0 /* FLYMyView.m */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		C2DCD3C91988D09400B3E3EB /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -1034,9 +1055,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C282462D197CB88700C64B9A /* DAILYSample */ = {
+		C282462D197CB88700C64B9A /* FLYDAILY */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C282465A197CB88800C64B9A /* Build configuration list for PBXNativeTarget "DAILYSample" */;
+			buildConfigurationList = C282465A197CB88800C64B9A /* Build configuration list for PBXNativeTarget "FLYDAILY" */;
 			buildPhases = (
 				C282462A197CB88700C64B9A /* Sources */,
 				C282462B197CB88700C64B9A /* Frameworks */,
@@ -1046,14 +1067,14 @@
 			);
 			dependencies = (
 			);
-			name = DAILYSample;
+			name = FLYDAILY;
 			productName = DAILYSample;
-			productReference = C282462E197CB88700C64B9A /* DAILYSample.app */;
+			productReference = C282462E197CB88700C64B9A /* FLYDAILY.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C2824648197CB88700C64B9A /* DAILYSampleTests */ = {
+		C2824648197CB88700C64B9A /* FLYDAILYTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C282465D197CB88800C64B9A /* Build configuration list for PBXNativeTarget "DAILYSampleTests" */;
+			buildConfigurationList = C282465D197CB88800C64B9A /* Build configuration list for PBXNativeTarget "FLYDAILYTests" */;
 			buildPhases = (
 				C2824645197CB88700C64B9A /* Sources */,
 				C2824646197CB88700C64B9A /* Frameworks */,
@@ -1064,9 +1085,9 @@
 			dependencies = (
 				C282464F197CB88700C64B9A /* PBXTargetDependency */,
 			);
-			name = DAILYSampleTests;
+			name = FLYDAILYTests;
 			productName = DAILYSampleTests;
-			productReference = C2824649197CB88700C64B9A /* DAILYSampleTests.xctest */;
+			productReference = C2824649197CB88700C64B9A /* FLYDAILYTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1084,7 +1105,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C2824629197CB88700C64B9A /* Build configuration list for PBXProject "DAILYSample" */;
+			buildConfigurationList = C2824629197CB88700C64B9A /* Build configuration list for PBXProject "FLYDAILY" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1097,8 +1118,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C282462D197CB88700C64B9A /* DAILYSample */,
-				C2824648197CB88700C64B9A /* DAILYSampleTests */,
+				C282462D197CB88700C64B9A /* FLYDAILY */,
+				C2824648197CB88700C64B9A /* FLYDAILYTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1131,6 +1152,7 @@
 				C22FFB3D19839576004A4744 /* downloadView@2x.png in Resources */,
 				C27B0A9F198A680F000D10F6 /* UMSLoginViewController.xib in Resources */,
 				C22FFB3F19839670004A4744 /* toolbar_ article_btn@2x.png in Resources */,
+				C204C0FE198CD1CD00F68BB0 /* DazFlake.png in Resources */,
 				C2F75F58197F69CD009C767C /* NBCJGZ_down_back@2x.png in Resources */,
 				C2EC108E19879B5A0082E935 /* FLYING2X.png in Resources */,
 				C27B0AA2198A680F000D10F6 /* UMSocialSDKResourcesNew.bundle in Resources */,
@@ -1159,6 +1181,7 @@
 				C20F48E5197EAA5100C03AE9 /* AFURLSessionManager.m in Sources */,
 				C20F48E2197EAA5100C03AE9 /* AFURLConnectionOperation.m in Sources */,
 				C2322718197F530E008B956E /* UIImageView+WebCache.m in Sources */,
+				C2BBE21C198BBDDD007A4BC1 /* FLYSettingViewController.m in Sources */,
 				C2DCD3DF1988D09400B3E3EB /* UIScrollView+Extension.m in Sources */,
 				C2824671197CB96300C64B9A /* MMDrawerVisualState.m in Sources */,
 				C20F48DF197EAA5100C03AE9 /* AFHTTPSessionManager.m in Sources */,
@@ -1225,6 +1248,7 @@
 				C2DCD3DD1988D09400B3E3EB /* MJRefreshFooterView.m in Sources */,
 				C232270A197F530E008B956E /* MKAnnotationView+WebCache.m in Sources */,
 				C2DCD3DB1988D09400B3E3EB /* MJRefreshBaseView.m in Sources */,
+				C204C0FC198CCF5D00F68BB0 /* FLYMyView.m in Sources */,
 				C20F48E4197EAA5100C03AE9 /* AFURLResponseSerialization.m in Sources */,
 				C2824685197CE52C00C64B9A /* MMNavigationController.m in Sources */,
 				C282AE8E1980ECCE00E72EFF /* FLYStoryViewController.m in Sources */,
@@ -1246,7 +1270,7 @@
 /* Begin PBXTargetDependency section */
 		C282464F197CB88700C64B9A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C282462D197CB88700C64B9A /* DAILYSample */;
+			target = C282462D197CB88700C64B9A /* FLYDAILY */;
 			targetProxy = C282464E197CB88700C64B9A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1355,13 +1379,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: hao xiao (F5JNPR77M6)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/分享/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DAILYSample/DAILYSample-Prefix.pch";
-				INFOPLIST_FILE = "DAILYSample/DAILYSample-Info.plist";
+				GCC_PREFIX_HEADER = "DAILYSample/FLYDAILY-Prefix.pch";
+				INFOPLIST_FILE = "DAILYSample/FLYDAILY-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/分享/UMSocial_Sdk_3.3.8",
@@ -1369,7 +1394,8 @@
 					"$(PROJECT_DIR)/分享/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/分享/UMAnalytics_Sdk_3.1.2",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FLYDAILY;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1379,13 +1405,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: hao xiao (F5JNPR77M6)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/分享/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DAILYSample/DAILYSample-Prefix.pch";
-				INFOPLIST_FILE = "DAILYSample/DAILYSample-Info.plist";
+				GCC_PREFIX_HEADER = "DAILYSample/FLYDAILY-Prefix.pch";
+				INFOPLIST_FILE = "DAILYSample/FLYDAILY-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/分享/UMSocial_Sdk_3.3.8",
@@ -1393,7 +1420,8 @@
 					"$(PROJECT_DIR)/分享/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/分享/UMAnalytics_Sdk_3.1.2",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FLYDAILY;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1413,8 +1441,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "DAILYSampleTests/DAILYSampleTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "DAILYSampleTests/FLYDAILYTests-Info.plist";
+				PRODUCT_NAME = FLYDAILYTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1431,8 +1459,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DAILYSample/DAILYSample-Prefix.pch";
-				INFOPLIST_FILE = "DAILYSampleTests/DAILYSampleTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "DAILYSampleTests/FLYDAILYTests-Info.plist";
+				PRODUCT_NAME = FLYDAILYTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1441,7 +1469,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C2824629197CB88700C64B9A /* Build configuration list for PBXProject "DAILYSample" */ = {
+		C2824629197CB88700C64B9A /* Build configuration list for PBXProject "FLYDAILY" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2824658197CB88800C64B9A /* Debug */,
@@ -1450,7 +1478,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C282465A197CB88800C64B9A /* Build configuration list for PBXNativeTarget "DAILYSample" */ = {
+		C282465A197CB88800C64B9A /* Build configuration list for PBXNativeTarget "FLYDAILY" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C282465B197CB88800C64B9A /* Debug */,
@@ -1459,7 +1487,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C282465D197CB88800C64B9A /* Build configuration list for PBXNativeTarget "DAILYSampleTests" */ = {
+		C282465D197CB88800C64B9A /* Build configuration list for PBXNativeTarget "FLYDAILYTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C282465E197CB88800C64B9A /* Debug */,

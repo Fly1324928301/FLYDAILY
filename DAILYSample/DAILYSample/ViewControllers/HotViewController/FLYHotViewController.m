@@ -41,6 +41,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
 //    self.view.backgroundColor = [UIColor whiteColor];
     // 标题颜色设置
@@ -80,6 +81,16 @@
     [_hotTableView addHeaderWithTarget:self action:@selector(upHotUI)];
     [_hotTableView addFooterWithTarget:self action:@selector(loadMoreHot)];
 }
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+    [super viewWillAppear:animated];
+    
+    
+}
+
 
 #pragma mark -- 上下加载
 - (void)upHotUI

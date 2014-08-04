@@ -99,7 +99,7 @@
 // 下啦刷新
 - (void)upui
 {
-    [_juhua startAnimating];
+    
     // 加载网络数据
     [self refreshHomeListWithNetWorking];
     

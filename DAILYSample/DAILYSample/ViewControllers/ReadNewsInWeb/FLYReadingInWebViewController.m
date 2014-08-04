@@ -80,7 +80,7 @@
     
     UITapGestureRecognizer *reloadTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(reloadClick)];
     [_webBarView.reloadView addGestureRecognizer:reloadTap];
-    NSLog(@"...%@",self.news.url);
+//    NSLog(@"...%@",self.news.url);
     
     UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shreClick)];
     [_webBarView.shareView addGestureRecognizer:shareTap];
@@ -141,7 +141,7 @@
         
         [_webView loadHTMLString:htmlStr baseURL:nil];
         _htmlTemp = htmlStr;
-        
+
         
         
     } failed:^(NSError *error) {

@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FLYNews : NSObject
+@interface FLYNews : NSObject <NSCoding>
 
 @property (nonatomic,copy) NSString *author;
 @property (nonatomic,copy) NSString *classify;
 @property (nonatomic,copy) NSString *dateinfo;
-@property (nonatomic,copy) NSString *image;
+@property (nonatomic,copy) NSString *first_image;
 @property (nonatomic,copy) NSString *image_real_height;
 @property (nonatomic,copy) NSString *image_real_width;
 @property (nonatomic,copy) NSString *info;
@@ -25,5 +25,7 @@
 @property (nonatomic,copy) NSString *timeStamp;
 @property (nonatomic,copy) NSString *title;
 @property (nonatomic,copy) NSString *url;
+
+
 
 @end

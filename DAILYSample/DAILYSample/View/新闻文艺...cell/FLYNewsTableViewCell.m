@@ -60,7 +60,7 @@ static const int kVerticalSpace = 5;
     float width = [news.image_real_width floatValue];
     height = height *100 / width;
     _imageView.frame = Rect(kLeftSpace, kTopSpace, 100, height);
-    [_imageView setImageWithURL:[NSURL URLWithString:news.image] placeholderImage:[UIImage imageNamed:@"FLYING2X.PNG"]];
+    [_imageView setImageWithURL:[NSURL URLWithString:news.first_image] placeholderImage:[UIImage imageNamed:@"FLYING2X.PNG"]];
     
     _titleLabel.frame = Rect(kLeftSpace*2 + 100, kTopSpace, 190, 16);
     _titleLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:16];

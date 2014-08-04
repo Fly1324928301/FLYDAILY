@@ -71,7 +71,7 @@
         NSMutableArray *tempimageArray = [[NSMutableArray alloc]initWithCapacity:1];
         for (FLYNews *news in tempArry) {
             UIImage *imagex = [UIImage imageNamed:@"FLYING2X.png"];
-            [urlArry addObject:news.image];
+            [urlArry addObject:news.first_image];
             [tempimageArray addObject:imagex];
         }
         // label

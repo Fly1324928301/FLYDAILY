@@ -9,6 +9,8 @@
 #import "FLYNetWorkingManage.h"
 #import "FLYNews.h"
 #import "FLYimage-textModel.h"
+#import "AFNetworking.h"
+
 
 @interface FLYNetWorkingManage ()
 
@@ -79,15 +81,22 @@ static FLYNetWorkingManage *netWork;
         
         if (requestHomePageListBlock) {
             
-                NSDictionary *homeDic = [selfTemp p_analysisHomePageListOfdataDic:responseObject];
-                _homePageDic = homeDic;
-                requestHomePageListBlock(_homePageDic);
+            NSDictionary *homeDic = [selfTemp p_analysisHomePageListOfdataDic:responseObject];
+            _homePageDic = homeDic;
+            requestHomePageListBlock(_homePageDic);
+            [selfTemp p_saveHomePageDic:_homePageDic];
             
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (failHomePageListBolck) {
-        failHomePageListBolck(error);
+            failHomePageListBolck(error);
+            
+            NSDictionary *dic = [selfTemp p_readHomePageDic];
+            _homePageDic = dic;
+            requestHomePageListBlock(_homePageDic);
+            
+            
         }
     }];
     
@@ -115,12 +124,13 @@ static FLYNetWorkingManage *netWork;
             NSDictionary *homeDic = [selfTemp p_analysisHomePageListOfdataDic:responseObject];
             _homePageDic = homeDic;
             requestHomePageListBlock(_homePageDic);
-            
+            [selfTemp p_saveHomePageDic:_homePageDic];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (failHomePageListBolck) {
             failHomePageListBolck(error);
+            
         }
     }];
     
@@ -151,17 +161,25 @@ static FLYNetWorkingManage *netWork;
             NSArray *hotArry = [selfTemp p_analysisHotPageListOfDataArry:responseObject];
             [_hotPageArry addObjectsFromArray: hotArry];
             requestHotPageListBlock(_hotPageArry);
+            
+            [selfTemp p_saveHotPageArry:_hotPageArry];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         if (failedHotPageListBlock) {
             failedHotPageListBlock(error);
+            
+            
+            NSArray *arry = [selfTemp p_readhotPageArry];
+            [_hotPageArry addObjectsFromArray:arry];
+            requestHotPageListBlock(_hotPageArry);
+            
         }
         
     }];
     
-
+    
 }
 // 刷新热门数据
 - (void)refreshHotPageListWithCompletion:(RequestHotPageListBlocks)hotcompletion error:(FailedHotPageListBlocks)error
@@ -183,11 +201,21 @@ static FLYNetWorkingManage *netWork;
             NSArray *hotArry = [selfTemp p_analysisHotPageListOfDataArry:responseObject];
             [_hotPageArry addObjectsFromArray: hotArry];
             requestHotPageListBlock(_hotPageArry);
+            
+            [selfTemp p_saveHotPageArry:_hotPageArry];
+            
+            
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         if (failedHotPageListBlock) {
             failedHotPageListBlock(error);
+            
+            NSArray *arry = [selfTemp p_readhotPageArry];
+            [_hotPageArry addObjectsFromArray:arry];
+            requestHotPageListBlock(_hotPageArry);
+            
+            
         }
         
     }];
@@ -195,13 +223,23 @@ static FLYNetWorkingManage *netWork;
     
 }
 
+
+
+
+
+
+
+
+
+
+
 // 加载更多热门数据
 - (void)loadMoreHotPageListWithCompletion:(RequestHotPageListBlocks)hotcompletion error:(FailedHotPageListBlocks)error
 {
     RequestHotPageListBlocks requestHotPageListBlock = [hotcompletion copy];
     FailedHotPageListBlocks failedHotPageListBlock = [error copy];
     
-
+    
     __weak id selfTemp = self;
     NSString *urlStr = @"http://www.bundpic.com/api_app_ios_300.php?action=hot&pagenum=";
     urlStr = [urlStr stringByAppendingString:_hotPage];
@@ -255,6 +293,11 @@ static FLYNetWorkingManage *netWork;
             NSArray *handPickArry = [selfTemp p_analysisHotPageListOfDataArry:responseObject];
             [_handPickArry addObjectsFromArray: handPickArry];
             requestHandPickPageListBlock (_handPickArry);
+            
+            
+            [selfTemp p_savehandPickArry:_handPickArry];
+            
+            
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -262,6 +305,10 @@ static FLYNetWorkingManage *netWork;
         if (failedHandPickPageListBlock) {
             
             failedHandPickPageListBlock (error);
+            
+            NSArray *arry = [selfTemp p_readhandPickArry];
+            [_handPickArry addObjectsFromArray:arry];
+            requestHandPickPageListBlock(_handPickArry);
             
         }
         
@@ -296,6 +343,9 @@ static FLYNetWorkingManage *netWork;
             NSArray *handPickArry = [selfTemp p_analysisHotPageListOfDataArry:responseObject];
             [_handPickArry addObjectsFromArray: handPickArry];
             requestHandPickPageListBlock (_handPickArry);
+            
+            [selfTemp p_savehandPickArry:_handPickArry];
+            
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -304,6 +354,9 @@ static FLYNetWorkingManage *netWork;
             
             failedHandPickPageListBlock (error);
             
+            NSArray *arry = [selfTemp p_readhandPickArry];
+            [_handPickArry addObjectsFromArray:arry];
+            requestHandPickPageListBlock(_handPickArry);
         }
         
     }];
@@ -337,12 +390,12 @@ static FLYNetWorkingManage *netWork;
                 [_handPickArry addObjectsFromArray: handPickArry];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
-                   
+                    
                     requestHandPickPageListBlock (_handPickArry);
                 });
                 
             });
-           
+            
             
         }
         
@@ -376,7 +429,7 @@ static FLYNetWorkingManage *netWork;
     static NSString *urlStr = @"http://www.bundpic.com/album_xml.php?perpage=50";
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-       
+        
         if (requestImage_textPageListBlock) {
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -389,7 +442,7 @@ static FLYNetWorkingManage *netWork;
                 });
                 
             });
-   
+            
             
         }
         
@@ -423,17 +476,24 @@ static FLYNetWorkingManage *netWork;
     static NSString *url = @"http://www.bundpic.com/api_app_ios_300.php?action=tag_article_list&tag=%E6%9C%AC%E5%91%A8%E6%8E%A8%E8%8D%90";
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-       
+        
         if (requestWeekPageListBlock) {
             NSArray *arryTemp =  [selfTemp p_anasysisWeekPageArryWithResponseArry:responseObject];
             [_weekArry addObjectsFromArray: arryTemp];
             requestWeekPageListBlock(_weekArry);
             
+            [selfTemp p_saveWeekArry:_weekArry];
+            
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (failWeekPageListBlock){
-        failWeekPageListBlock(error);
+            failWeekPageListBlock(error);
+            
+            NSArray *arry = [selfTemp p_readweekArry];
+            [_weekArry addObjectsFromArray:arry];
+            requestWeekPageListBlock(_weekArry);
+            
         }
         
     }];
@@ -462,11 +522,20 @@ static FLYNetWorkingManage *netWork;
             [_weekArry addObjectsFromArray: arryTemp];
             requestWeekPageListBlock(_weekArry);
             
+            
+            [selfTemp p_saveWeekArry:_weekArry];
+            
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (failWeekPageListBlock){
             failWeekPageListBlock(error);
+            
+            NSArray *arry = [selfTemp p_readweekArry];
+            [_weekArry addObjectsFromArray:arry];
+            requestWeekPageListBlock(_weekArry);
+
+            
         }
         
     }];
@@ -480,8 +549,8 @@ static FLYNetWorkingManage *netWork;
     
     RequestWeekPageListBlocks requestWeekPageListBlock = [completion copy];
     FailedWeekPageListBlocks failWeekPageListBlock = [error copy];
-
-
+    
+    
     __weak id selfTemp = self;
     NSString *url = @"http://www.bundpic.com/api_app_ios_300.php?action=tag_article_list&tag=%E6%9C%AC%E5%91%A8%E6%8E%A8%E8%8D%90&pagenum=";
     url = [url stringByAppendingString:_weekPage];
@@ -526,7 +595,7 @@ static FLYNetWorkingManage *netWork;
         _lifeArry = [[NSMutableArray alloc] initWithCapacity:5];
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-           
+            
             if (requestLifePagelistBlock) {
                 NSArray *arry = [selfTemp p_analysisHotPageListOfDataArry:responseObject];
                 [_lifeArry addObjectsFromArray:arry];
@@ -600,7 +669,7 @@ static FLYNetWorkingManage *netWork;
         FLYNews *news = [[FLYNews alloc]init];
         news.author = newsDic[@"author"];
         news.dateinfo = newsDic[@"dateinfo"];
-        news.image = newsDic[@"image"];
+        news.first_image = newsDic[@"image"];
         news.image_real_height = newsDic[@"image_real_height"];
         news.image_real_width = newsDic[@"image_real_width"];
         news.info = newsDic[@"info"];
@@ -626,7 +695,7 @@ static FLYNetWorkingManage *netWork;
         news.author = secnewsDic[@"author"];
         news.classify = secnewsDic[@"classify"];
         news.dateinfo = secnewsDic[@"dateinfo"];
-        news.image = secnewsDic[@"image"];
+        news.first_image = secnewsDic[@"image"];
         news.image_real_height = secnewsDic[@"image_real_height"];
         news.image_real_width = secnewsDic[@"image_real_width"];
         news.info = secnewsDic[@"info"];
@@ -677,7 +746,7 @@ static FLYNetWorkingManage *netWork;
         FLYNews *news = [[FLYNews alloc]init];
         news.author = newsDic[@"author"];
         news.dateinfo = newsDic[@"dateinfo"];
-        news.image = newsDic[@"image"];
+        news.first_image = newsDic[@"image"];
         news.image_real_height = newsDic[@"image_real_height"];
         news.image_real_width = newsDic[@"image_real_width"];
         news.info = newsDic[@"info"];
@@ -689,6 +758,9 @@ static FLYNetWorkingManage *netWork;
         news.timeStamp = newsDic[@"timeStamp"];
         news.title = newsDic[@"title"];
         news.url = newsDic[@"url"];
+        
+        //        [news setValuesForKeysWithDictionary:newsDic];
+        
         [hotListArry addObject:news];
     }
     return hotListArry;
@@ -719,7 +791,7 @@ static FLYNetWorkingManage *netWork;
         FLYNews *news = [[FLYNews alloc] init];
         news.author = newsDic[@"author"];
         news.dateinfo = newsDic[@"dateinfo"];
-        news.image = newsDic[@"image"];
+        news.first_image = newsDic[@"image"];
         news.image_real_height = newsDic[@"image_real_height"];
         news.image_real_width = newsDic[@"image_real_width"];
         news.info = newsDic[@"info"];
@@ -753,7 +825,7 @@ static FLYNetWorkingManage *netWork;
         FLYNews *news = [[FLYNews alloc]init];
         news.author = newsDic[@"author"];
         news.dateinfo = newsDic[@"dateinfo"];
-        news.image = newsDic[@"image"];
+        news.first_image = newsDic[@"image"];
         news.image_real_height = newsDic[@"image_real_height"];
         news.image_real_width = newsDic[@"image_real_width"];
         news.info = newsDic[@"info"];
@@ -773,6 +845,145 @@ static FLYNetWorkingManage *netWork;
 
 
 
+
+
+
+#pragma mark -- 归档本地缓存
+#pragma mark -- 首页
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    
+    [aCoder encodeObject:_homePageDic forKey:@"homePageDic"];
+    [aCoder encodeObject:_hotPageArry forKey:@"hotPageArry"];
+    [aCoder encodeObject:_handPickArry forKey:@"handPickArry"];
+    [aCoder encodeObject:_weekArry forKey:@"weekArry"];
+    
+    
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    
+    if ([super init]) {
+        
+        _homePageDic = [aDecoder decodeObjectForKey:@"homePageDic"];
+        _hotPageArry = [aDecoder decodeObjectForKey:@"hotPageArry"];
+        _handPickArry = [aDecoder decodeObjectForKey:@"handPickArry"];
+        _weekArry = [aDecoder decodeObjectForKey:@"weekArry"];
+        
+    }
+    
+    return self;
+}
+
+
+- (BOOL)p_saveHomePageDic:(NSDictionary *)dic
+{
+    
+    NSMutableData *arData = [[NSMutableData alloc]init];
+    NSKeyedArchiver *archier = [[NSKeyedArchiver alloc]initForWritingWithMutableData:arData];
+    [archier encodeObject:dic forKey:@"homePageDic"];
+    [archier finishEncoding];
+    NSString* filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingString:@"/homePagePlist.plist"];
+    NSLog(@".......%@",filePath);
+    return [arData writeToFile:filePath atomically:YES];
+    
+}
+
+// 本地读取
+- (NSDictionary *)p_readHomePageDic
+{
+    NSString* filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingString:@"/homePagePlist.plist"];
+    NSData *arData = [NSData dataWithContentsOfFile:filePath];
+    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc]initForReadingWithData:arData];
+    NSDictionary *dic = [unarchiver decodeObjectForKey:@"homePageDic"];
+    [unarchiver finishDecoding];
+    return dic;
+    
+}
+
+
+#pragma mark -- 热门
+
+// 本地存储
+- (BOOL)p_saveHotPageArry:(NSArray *)arry
+{
+    
+    NSMutableData *arData = [[NSMutableData alloc]init];
+    NSKeyedArchiver *archier = [[NSKeyedArchiver alloc]initForWritingWithMutableData:arData];
+    [archier encodeObject:arry forKey:@"hotPageArry"];
+    [archier finishEncoding];
+    NSString* filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingString:@"/hotPagePList.plist"];
+    return [arData writeToFile:filePath atomically:YES];
+    
+}
+
+// 本地读取
+- (NSArray *)p_readhotPageArry
+{
+    NSString* filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingString:@"/hotPagePList.plist"];
+    NSData *arData = [NSData dataWithContentsOfFile:filePath];
+    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc]initForReadingWithData:arData];
+    NSArray *arry = [unarchiver decodeObjectForKey:@"hotPageArry"];
+    [unarchiver finishDecoding];
+    return arry;
+    
+}
+
+
+
+#pragma mark -- 每日精选
+// 本地存储
+- (BOOL)p_savehandPickArry:(NSArray *)arry
+{
+    
+    NSMutableData *arData = [[NSMutableData alloc]init];
+    NSKeyedArchiver *archier = [[NSKeyedArchiver alloc]initForWritingWithMutableData:arData];
+    [archier encodeObject:arry forKey:@"handPickArry"];
+    [archier finishEncoding];
+    NSString* filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingString:@"/handPickPList.plist"];
+    return [arData writeToFile:filePath atomically:YES];
+    
+}
+
+// 本地读取
+- (NSArray *)p_readhandPickArry
+{
+    NSString* filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingString:@"/handPickPlist.plist"];
+    NSData *arData = [NSData dataWithContentsOfFile:filePath];
+    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc]initForReadingWithData:arData];
+    NSArray *arry = [unarchiver decodeObjectForKey:@"handPickArry"];
+    [unarchiver finishDecoding];
+    return arry;
+    
+}
+
+
+#pragma mark -- 本周推荐
+// 本地存储
+- (BOOL)p_saveWeekArry:(NSArray *)arry
+{
+    
+    NSMutableData *arData = [[NSMutableData alloc]init];
+    NSKeyedArchiver *archier = [[NSKeyedArchiver alloc]initForWritingWithMutableData:arData];
+    [archier encodeObject:arry forKey:@"weekArry"];
+    [archier finishEncoding];
+    NSString* filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingString:@"/weekPlist.plist"];
+    return [arData writeToFile:filePath atomically:YES];
+    
+}
+
+// 本地读取
+- (NSArray *)p_readweekArry
+{
+    NSString* filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingString:@"/weekPlist.plist"];
+    NSData *arData = [NSData dataWithContentsOfFile:filePath];
+    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc]initForReadingWithData:arData];
+    NSArray *arry = [unarchiver decodeObjectForKey:@"weekArry"];
+    [unarchiver finishDecoding];
+    return arry;
+    
+}
 
 
 @end

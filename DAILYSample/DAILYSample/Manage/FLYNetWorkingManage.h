@@ -35,7 +35,7 @@ typedef void(^FailedWeekPageListBlocks)(NSError *error);
 typedef void(^RequestLifePageListBlocks)(NSArray *array);
 typedef void(^FailedLifePageListBlocks)(NSError *error);
 
-@interface FLYNetWorkingManage : NSObject
+@interface FLYNetWorkingManage : NSObject <NSCoding>
 
 // 获取单例方法
 + (instancetype)currentNetWorkManager;

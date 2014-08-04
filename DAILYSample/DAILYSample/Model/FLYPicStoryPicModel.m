@@ -10,4 +10,20 @@
 
 @implementation FLYPicStoryPicModel
 
+
+- (void)dealloc
+{
+    
+    self.breif = nil;
+    self.height = nil;
+    self.image_url = nil;
+    self.large_url = nil;
+    self.share_url = nil;
+    self.title = nil;
+    self.width = nil;
+    
+}
+
+
+
 @end

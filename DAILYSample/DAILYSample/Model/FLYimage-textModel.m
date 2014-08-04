@@ -10,4 +10,18 @@
 
 @implementation FLYimage_textModel
 
+
+- (void)dealloc
+{
+    
+    self.news = nil;
+    self.first_image = nil;
+    self.image_textID = nil;
+    self.share_url = nil;
+    self.title = nil;
+    self.url = nil;
+    
+}
+
+
 @end
