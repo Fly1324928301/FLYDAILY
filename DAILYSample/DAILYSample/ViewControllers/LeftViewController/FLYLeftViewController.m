@@ -41,7 +41,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.array = @[@"首页",@"热门",@"每日精选",@"图片故事",@"本周推荐",@[@"新闻",@"文艺",@"时尚",@"生活"],@"设置"];
+    self.array = @[@"首页",@"热门",@"每日精选",@"本周推荐",@"图片故事",@[@"新闻",@"文艺",@"时尚",@"生活"],@"设置"];
     self.tbView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 175, self.view.frame.size.height - 64) style:UITableViewStylePlain];
     self.tbView.delegate = self;
     self.tbView.dataSource = self;
@@ -138,15 +138,19 @@
         [self.mm_drawerController setCenterViewController:nav withFullCloseAnimation:YES completion:nil];
     }
     if (indexPath.section == 3) {
-        FLYStoryViewController *StoryVC = [[FLYStoryViewController alloc] init];
-        UINavigationController *nav = [[MMNavigationController alloc] initWithRootViewController:StoryVC];
-        [self.mm_drawerController setCenterViewController:nav withFullCloseAnimation:YES completion:nil];
         
+        FLYRecommendationOfWeekViewController *recommendOfWeekVC = [[FLYRecommendationOfWeekViewController alloc] init];
+        UINavigationController *nav = [[MMNavigationController alloc] initWithRootViewController:recommendOfWeekVC];
+        [self.mm_drawerController setCenterViewController:nav withFullCloseAnimation:YES completion:nil];
     }
     
     if (indexPath.section == 4) {
-        FLYRecommendationOfWeekViewController *recommendOfWeekVC = [[FLYRecommendationOfWeekViewController alloc] init];
-        UINavigationController *nav = [[MMNavigationController alloc] initWithRootViewController:recommendOfWeekVC];
+        
+        
+        
+        
+        FLYStoryViewController *StoryVC = [[FLYStoryViewController alloc] init];
+        UINavigationController *nav = [[MMNavigationController alloc] initWithRootViewController:StoryVC];
         [self.mm_drawerController setCenterViewController:nav withFullCloseAnimation:YES completion:nil];
         
     }

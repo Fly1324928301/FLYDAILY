@@ -885,7 +885,7 @@ static FLYNetWorkingManage *netWork;
     [archier encodeObject:dic forKey:@"homePageDic"];
     [archier finishEncoding];
     NSString* filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingString:@"/homePagePlist.plist"];
-    NSLog(@".......%@",filePath);
+    
     return [arData writeToFile:filePath atomically:YES];
     
 }
@@ -940,8 +940,10 @@ static FLYNetWorkingManage *netWork;
     NSMutableData *arData = [[NSMutableData alloc]init];
     NSKeyedArchiver *archier = [[NSKeyedArchiver alloc]initForWritingWithMutableData:arData];
     [archier encodeObject:arry forKey:@"handPickArry"];
+    
     [archier finishEncoding];
-    NSString* filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingString:@"/handPickPList.plist"];
+    NSString* filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingString:@"/handPickPlist.plist"];
+    
     return [arData writeToFile:filePath atomically:YES];
     
 }

@@ -119,6 +119,8 @@
 		C282AE9419810C2500E72EFF /* FLYRecommendationOfWeekViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C282AE9319810C2500E72EFF /* FLYRecommendationOfWeekViewController.m */; };
 		C282AE981981252300E72EFF /* FLYAdaptPicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C282AE971981252300E72EFF /* FLYAdaptPicTableViewCell.m */; };
 		C282AE9C1981293900E72EFF /* FLYNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C282AE9B1981293900E72EFF /* FLYNewsTableViewCell.m */; };
+		C297A0CA199072C400258097 /* 1024*1024ICON.png in Resources */ = {isa = PBXBuildFile; fileRef = C297A0C9199072C400258097 /* 1024*1024ICON.png */; };
+		C297A0CD199075F200258097 /* FLYMFMailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C297A0CC199075F200258097 /* FLYMFMailViewController.m */; };
 		C2BBE21C198BBDDD007A4BC1 /* FLYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BBE21B198BBDDD007A4BC1 /* FLYSettingViewController.m */; };
 		C2DCD3DA1988D09400B3E3EB /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C2DCD3CA1988D09400B3E3EB /* MJRefresh.bundle */; };
 		C2DCD3DB1988D09400B3E3EB /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DCD3CD1988D09400B3E3EB /* MJRefreshBaseView.m */; };
@@ -138,6 +140,8 @@
 		C2F75F58197F69CD009C767C /* NBCJGZ_down_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F75F57197F69CD009C767C /* NBCJGZ_down_back@2x.png */; };
 		C2F75F5A197F69E9009C767C /* NBCJGZ_enter_view_back_night_highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F75F59197F69E9009C767C /* NBCJGZ_enter_view_back_night_highlight@2x.png */; };
 		C2F75F60197FA7E3009C767C /* FLYHomePageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F75F5F197FA7E3009C767C /* FLYHomePageTableViewCell.m */; };
+		C2FE8A57198FBEF2005CD362 /* FLYAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FE8A55198FBEF2005CD362 /* FLYAboutUsViewController.m */; };
+		C2FE8A58198FBEF2005CD362 /* FLYAboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2FE8A56198FBEF2005CD362 /* FLYAboutUsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -352,6 +356,9 @@
 		C282AE971981252300E72EFF /* FLYAdaptPicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYAdaptPicTableViewCell.m; sourceTree = "<group>"; };
 		C282AE9A1981293900E72EFF /* FLYNewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLYNewsTableViewCell.h; sourceTree = "<group>"; };
 		C282AE9B1981293900E72EFF /* FLYNewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYNewsTableViewCell.m; sourceTree = "<group>"; };
+		C297A0C9199072C400258097 /* 1024*1024ICON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1024*1024ICON.png"; sourceTree = "<group>"; };
+		C297A0CB199075F100258097 /* FLYMFMailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLYMFMailViewController.h; sourceTree = "<group>"; };
+		C297A0CC199075F200258097 /* FLYMFMailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYMFMailViewController.m; sourceTree = "<group>"; };
 		C2BBE21A198BBDDD007A4BC1 /* FLYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLYSettingViewController.h; sourceTree = "<group>"; };
 		C2BBE21B198BBDDD007A4BC1 /* FLYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYSettingViewController.m; sourceTree = "<group>"; };
 		C2DCD3CA1988D09400B3E3EB /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
@@ -383,6 +390,9 @@
 		C2F75F59197F69E9009C767C /* NBCJGZ_enter_view_back_night_highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NBCJGZ_enter_view_back_night_highlight@2x.png"; sourceTree = "<group>"; };
 		C2F75F5E197FA7E3009C767C /* FLYHomePageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLYHomePageTableViewCell.h; sourceTree = "<group>"; };
 		C2F75F5F197FA7E3009C767C /* FLYHomePageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYHomePageTableViewCell.m; sourceTree = "<group>"; };
+		C2FE8A54198FBEF2005CD362 /* FLYAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLYAboutUsViewController.h; sourceTree = "<group>"; };
+		C2FE8A55198FBEF2005CD362 /* FLYAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYAboutUsViewController.m; sourceTree = "<group>"; };
+		C2FE8A56198FBEF2005CD362 /* FLYAboutUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FLYAboutUsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -830,6 +840,7 @@
 		C2824662197CB95B00C64B9A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				C297A0C9199072C400258097 /* 1024*1024ICON.png */,
 				C204C0FD198CD1CD00F68BB0 /* DazFlake.png */,
 				C2EC108D19879B5A0082E935 /* FLYING2X.png */,
 				C22FFB441983AB55004A4744 /* tool_footersep.png */,
@@ -1014,6 +1025,11 @@
 			children = (
 				C2BBE21A198BBDDD007A4BC1 /* FLYSettingViewController.h */,
 				C2BBE21B198BBDDD007A4BC1 /* FLYSettingViewController.m */,
+				C2FE8A54198FBEF2005CD362 /* FLYAboutUsViewController.h */,
+				C2FE8A55198FBEF2005CD362 /* FLYAboutUsViewController.m */,
+				C2FE8A56198FBEF2005CD362 /* FLYAboutUsViewController.xib */,
+				C297A0CB199075F100258097 /* FLYMFMailViewController.h */,
+				C297A0CC199075F200258097 /* FLYMFMailViewController.m */,
 				C204C0FA198CCF5D00F68BB0 /* FLYMyView.h */,
 				C204C0FB198CCF5D00F68BB0 /* FLYMyView.m */,
 			);
@@ -1154,7 +1170,9 @@
 				C22FFB3F19839670004A4744 /* toolbar_ article_btn@2x.png in Resources */,
 				C204C0FE198CD1CD00F68BB0 /* DazFlake.png in Resources */,
 				C2F75F58197F69CD009C767C /* NBCJGZ_down_back@2x.png in Resources */,
+				C297A0CA199072C400258097 /* 1024*1024ICON.png in Resources */,
 				C2EC108E19879B5A0082E935 /* FLYING2X.png in Resources */,
+				C2FE8A58198FBEF2005CD362 /* FLYAboutUsViewController.xib in Resources */,
 				C27B0AA2198A680F000D10F6 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				C27B0A9B198A680F000D10F6 /* UMSCommentInputController.xib in Resources */,
 				C20A28A01982701300669318 /* BackIMG@2x.png in Resources */,
@@ -1198,6 +1216,7 @@
 				C282468A197CEE1A00C64B9A /* FLYLeftViewController.m in Sources */,
 				C282467D197CC8BF00C64B9A /* MMExampleDrawerVisualStateManager.m in Sources */,
 				C2824642197CB88700C64B9A /* FLYAppDelegate.m in Sources */,
+				C297A0CD199075F200258097 /* FLYMFMailViewController.m in Sources */,
 				C2322717197F530E008B956E /* UIImageView+HighlightedWebCache.m in Sources */,
 				C282AE871980DF7800E72EFF /* FLYimage-textModel.m in Sources */,
 				C280652019863D8B00842216 /* FLYInfoView.m in Sources */,
@@ -1228,6 +1247,7 @@
 				C20A28981982467D00669318 /* RegexKitLite.m in Sources */,
 				C2824681197CC92D00C64B9A /* MMLogoView.m in Sources */,
 				C266740F197DF9E200B0FCBA /* FLYNews.m in Sources */,
+				C2FE8A57198FBEF2005CD362 /* FLYAboutUsViewController.m in Sources */,
 				C282463E197CB88700C64B9A /* main.m in Sources */,
 				C20A288C1982274400669318 /* FLYReadingInWebViewController.m in Sources */,
 				C20A289E198261BD00669318 /* FLYWebBarView.m in Sources */,

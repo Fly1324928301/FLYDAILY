@@ -10,6 +10,9 @@
 #import "FLYMyView.h"
 #import "UIViewController+MMDrawerController.h"
 #import "MMDrawerBarButtonItem.h"
+#import "SDImageCache.h"
+#import "FLYAboutUsViewController.h"
+#import "FLYMFMailViewController.h"
 @interface FLYSettingViewController ()
 
 {
@@ -41,6 +44,7 @@
 
     _setArry = @[@"清除缓存",@"反馈信息",@"关于我们"];
     [self setTableView];
+    
     
 }
 
@@ -154,7 +158,42 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    if (indexPath.row == 3) {
+        
+        float diskInt = (float)[[SDImageCache sharedImageCache] getSize];
+        diskInt = diskInt / 1024 / 1024;
+        NSString *cashMB = [[NSString alloc] initWithFormat:@"清理%.2fMb图片缓存",diskInt];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+           
+            [[SDImageCache sharedImageCache] clearDisk];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                UIAlertView *aler = [[UIAlertView alloc] initWithTitle:@"提示" message:cashMB delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [aler show];
+                
+            });
+            
+        });
+        
+    }
     
+    if (indexPath.row == 4) {
+        
+        FLYMFMailViewController *mfVC = [[FLYMFMailViewController alloc] init];
+        [self.navigationController pushViewController:mfVC animated:YES];
+        
+    }
+    
+    
+    if (indexPath.row == 5) {
+        
+        
+        FLYAboutUsViewController *aboutUsVC = [[FLYAboutUsViewController alloc] init];
+        [self.navigationController pushViewController:aboutUsVC animated:YES];
+        
+    }
     
 }
 
